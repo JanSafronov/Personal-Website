@@ -1,0 +1,32 @@
+$defb: 1px solid black;
+
+header {
+    nav {
+        margin-bottom: 0;
+    }
+}
+
+#container-main {
+
+
+
+    .text-center {
+        figure {
+            height: 200px;
+
+            border: $defb;
+
+            figcaption {
+                height: 100%;
+                
+                display: grid;
+
+                h3 {
+                    width: fit-content;
+
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

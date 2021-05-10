@@ -1,0 +1,22 @@
+header nav {
+  margin-bottom: 0;
+}
+
+#container-main .text-center figure {
+  height: 200px;
+  border: 1px solid black;
+}
+
+#container-main .text-center figure figcaption {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+}
+
+#container-main .text-center figure figcaption h3 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+/*# sourceMappingURL=Index.css.map */
