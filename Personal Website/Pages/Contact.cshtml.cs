@@ -35,6 +35,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Personal_Website.Back_End.DBFunctions;
+using Personal_Website.Back_End.Security;
 
 namespace Personal_Website.Pages
 {
@@ -53,7 +54,12 @@ namespace Personal_Website.Pages
             string name = HttpContext.Request.Headers["Name"];
             string message = HttpContext.Request.Headers["Message"];
 
-            ViewBag.View = string.Format("Name,Mes; {0} {1}", name, message);
+            if (Formatting.contactFormat(name, message))
+            {
+                ISUD.InsertNewMessage(name, "locally", message);
+
+                Response.Cookies.Append("name", name);
+            }
 
             return View();
         }

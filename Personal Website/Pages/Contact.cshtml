@@ -27,7 +27,7 @@
     <p>If you want to send a message by mail, please be specific, spam and repetitive text is not accepted.</p>
 </div>
 
-<form id="contact-form" method="POST" action="../Contact">
+<form id="contact-form" method="POST">
     <div>
         <input class="input-group input-group-text" name="Name" type="text" pattern="\w+" placeholder="Your name" />
         <input class="input-group input-group-text" name="Mail" type="text" pattern="\w+[@@]\w+[.]\w+" placeholder="Your mail address" />
@@ -38,7 +38,6 @@
     </div>
     <textarea class="text-body" name="Message" placeholder="Your message" maxlength="500"></textarea>
     <input class="input-group-sm" name="Submit" type="submit" value="Send"/>
-    <div id="cookiecont"></div>
 </form>
 
 <link type="text/css" rel="stylesheet" href="~/css/Contact.css" />

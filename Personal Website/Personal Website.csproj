@@ -23,8 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Back End\Security\" />
+    <Folder Include="Views\Contact\" />
     <Folder Include="wwwroot\media\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\Shared\_ValidationScriptsPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
