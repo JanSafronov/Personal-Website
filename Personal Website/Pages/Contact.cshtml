@@ -1,24 +1,32 @@
 ﻿@page
 @model ContactModel
+@using Personal_Website.Pages
+@using Back_End.DBFunctions;
+@using Back_End.Security;
+@using Microsoft.AspNetCore;
+@using Microsoft.AspNetCore.Mvc;
+@using Microsoft.AspNetCore.Razor;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
 @{
 
-}
-@functions{
-    public class HomeController : Controller
+    if (Request.Method == "POST")
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        string name = Request.Form["Name"];
+        string message = Request.Form["Message"];
 
-        [HttpPost]
-        public IActionResult Index(string firstName, string lastName)
+        if (Formatting.contactFormat(name, message))
         {
-            ViewBag.Name = string.Format("Name: {0} {1}", firstName, lastName);
-            return View();
+            name = name.Replace("'", @"\'");
+
+            int status = ISUD.InsertNewMessage(name, "locally", message);
+
+            Response.StatusCode = status;
+
+            Request.Method = "GET";
         }
     }
 }
+
 
 <div>
     <h2>Contact Information</h2>
@@ -27,7 +35,7 @@
     <p>If you want to send a message by mail, please be specific, spam and repetitive text is not accepted.</p>
 </div>
 
-<form id="contact-form" method="POST">
+<form id="contact-form" enctype="multipart/form-data" method="POST" action="" onsubmit="HTTPMessageRequest(this);">
     <div>
         <input class="input-group input-group-text" name="Name" type="text" pattern="\w+" placeholder="Your name" />
         <input class="input-group input-group-text" name="Mail" type="text" pattern="\w+[@@]\w+[.]\w+" placeholder="Your mail address" />
@@ -37,7 +45,7 @@
         </select>
     </div>
     <textarea class="text-body" name="Message" placeholder="Your message" maxlength="500"></textarea>
-    <input class="input-group-sm" name="Submit" type="submit" value="Send"/>
+    <input class="input-group-sm" name="Submit" type="submit" value="Send" />
 </form>
 
 <link type="text/css" rel="stylesheet" href="~/css/Contact.css" />

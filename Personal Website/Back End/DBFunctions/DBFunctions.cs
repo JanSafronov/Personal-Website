@@ -51,22 +51,23 @@ namespace Personal_Website.Back_End.DBFunctions
 {
     public class ISUD
     {
-        public static void InsertNewMessage(string name, string type, string message)
+        public static int InsertNewMessage(string name, string type, string message)
         {
             // Init connection
-            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;");
+            //Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
 
             // Open connection
             conn.Open();
 
-            // Command building
-            SqlCommandBuilder cmdb = new SqlCommandBuilder();
-            SqlCommand sqlc = cmdb.GetInsertCommand();
-            sqlc.Parameters.AddRange(new SqlParameter[] { new SqlParameter("Name", name), new SqlParameter("Message", message) });
+            SqlDataAdapter adapter = new SqlDataAdapter();
 
             // Command insertion
-            SqlCommand sqc = new SqlCommand(sqlc.CommandText, conn);
-            sqc.ExecuteReader();
+            SqlCommand sqc = new SqlCommand("INSERT INTO Messages([Name], [Message]) " +
+                                            "VALUES('" + name + "','" + message + "','" + new SqlDateTime(DateTime.Now) + ")", conn);
+
+            adapter.InsertCommand = sqc;
+            adapter.InsertCommand.ExecuteNonQuery();
 
             // Close connection
             conn.Close();

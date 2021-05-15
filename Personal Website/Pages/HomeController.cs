@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Personal_Website
+namespace Personal_Website.Pages
 {
     public class HomeController : Controller
     {

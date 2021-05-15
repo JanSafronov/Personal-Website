@@ -12,7 +12,7 @@ namespace Personal_Website.Back_End.Security
         public static bool contactFormat(string name, string message, string email = null)
         {
             Regex npat = new Regex(@"^\w{1,50}$");
-            Regex mpat = new Regex(@"^\w{1,500}$");
+            Regex mpat = new Regex(@"\w*[']?\w*\s");
 
             bool b = npat.IsMatch(name) && mpat.IsMatch(message);
 
@@ -22,6 +22,8 @@ namespace Personal_Website.Back_End.Security
 
                 b = b && epat.IsMatch(email);
             }
+
+            name = Regex.Replace(name, "'", "\'");
 
             return b;
         }

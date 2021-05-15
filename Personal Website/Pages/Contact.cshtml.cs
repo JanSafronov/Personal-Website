@@ -42,24 +42,44 @@ namespace Personal_Website.Pages
 
     public class ContactModel : PageModel
     {
+        public string Status { get; set; } = "get";
+
         public void OnGet()
         {
+            Status = "";
+        }
+        public void OnPost()
+        {
+            Status = "Message sent";
+        }
+
+        [HttpPost]
+        public void Send()
+        {
+            string name = HttpContext.Request.Headers["Name"];
+            string message = HttpContext.Request.Headers["Message"];
+
+            if (true)
+            {
+                ISUD.InsertNewMessage(name, "locally", message);
+            }
         }
     }
 
     public class ContactController : Controller
     {
-        public IActionResult SendMessage()
-        {
+        // POST: ContactController/Send
+        [HttpPost]
+        public ActionResult Send() {
             string name = HttpContext.Request.Headers["Name"];
             string message = HttpContext.Request.Headers["Message"];
 
-            if (Formatting.contactFormat(name, message))
+            if (true)
             {
                 ISUD.InsertNewMessage(name, "locally", message);
-
-                Response.Cookies.Append("name", name);
             }
+
+            ViewBag.Test = "test";
 
             return View();
         }
