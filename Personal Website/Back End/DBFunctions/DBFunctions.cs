@@ -54,8 +54,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static int InsertNewMessage(string name, string type, string message)
         {
             // Init connection
-            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;");
-            //Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             // Open connection
             conn.Open();
@@ -71,6 +70,8 @@ namespace Personal_Website.Back_End.DBFunctions
 
             // Close connection
             conn.Close();
+
+            return 1;
         }
     }
 }
