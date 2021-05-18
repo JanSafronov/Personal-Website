@@ -52,36 +52,7 @@ namespace Personal_Website.Pages
         {
             Status = "Message sent";
         }
-
-        [HttpPost]
-        public void Send()
-        {
-            string name = HttpContext.Request.Headers["Name"];
-            string message = HttpContext.Request.Headers["Message"];
-
-            if (true)
-            {
-                ISUD.InsertNewMessage(name, "locally", message);
-            }
-        }
     }
 
-    public class ContactController : Controller
-    {
-        // POST: ContactController/Send
-        [HttpPost]
-        public ActionResult Send() {
-            string name = HttpContext.Request.Headers["Name"];
-            string message = HttpContext.Request.Headers["Message"];
-
-            if (true)
-            {
-                ISUD.InsertNewMessage(name, "locally", message);
-            }
-
-            ViewBag.Test = "test";
-
-            return View();
-        }
-    }
+    
 }

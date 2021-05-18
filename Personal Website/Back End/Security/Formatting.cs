@@ -12,13 +12,13 @@ namespace Personal_Website.Back_End.Security
         public static bool contactFormat(string name, string message, string email = null)
         {
             Regex npat = new Regex(@"^\w{1,50}$");
-            Regex mpat = new Regex(@"\w*[']?\w*\s");
+            Regex mpat = new Regex(@"\w*[']?\w*\s*");
 
             bool b = npat.IsMatch(name) && mpat.IsMatch(message);
 
             if (email != null)
             {
-                Regex epat = new Regex(@"^\w+[@]$");
+                Regex epat = new Regex(@"^\w+[@]\w+[.]\w+$");
 
                 b = b && epat.IsMatch(email);
             }

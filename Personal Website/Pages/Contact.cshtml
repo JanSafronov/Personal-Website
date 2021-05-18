@@ -3,6 +3,45 @@
 @using Personal_Website.Pages
 @using Back_End.DBFunctions;
 @using Back_End.Security;
+@using Microsoft.VisualStudio.Web;
+@using Microsoft.Net;
+@using Microsoft.Net.Http;
+@using Microsoft.Net.Http.Headers;
+@using Microsoft.IdentityModel;
+@using Microsoft.IdentityModel.Protocols;
+@using Microsoft.Extensions.Http;
+@using Microsoft.DotNet;
+@using Microsoft.DotNet.PlatformAbstractions;
+@using Microsoft.Data;
+@using Microsoft.AspNetCore.Server;
+@using Microsoft.AspNetCore.Server.HttpSys;
+@using Microsoft.AspNetCore.Server.IIS;
+@using Microsoft.AspNetCore.Server.IIS.Core;
+@using Microsoft.AspNetCore.Session;
+@using Microsoft.AspNetCore.Routing;
+@using Microsoft.AspNetCore.Routing.Internal;
+@using Microsoft.AspNetCore.Routing.Tree;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Http.Connections;
+@using Microsoft.AspNetCore.Http.Connections.Features;
+@using Microsoft.AspNetCore.Http.Extensions;
+@using Microsoft.AspNetCore.Http.Features;
+@using Microsoft.AspNetCore.Http.Features.Authentication;
+@using Microsoft.AspNetCore.Http.Headers;
+@using Microsoft.AspNetCore.Connections;
+@using Microsoft.AspNetCore.Connections.Features;
+@using Microsoft.AspNetCore.Authentication;
+@using System.IO.Pipelines;
+@using System.IO.Pipes;
+@using System.Net;
+@using System.Net.Cache;
+@using System.Net.Http;
+@using System.Net.Http.Headers;
+@using System.Security
+@using System.Security.Authentication;
+@using System.Security.Authentication.ExtendedProtection;
+@using System.Web;
 @using Microsoft.AspNetCore;
 @using Microsoft.AspNetCore.Mvc;
 @using Microsoft.AspNetCore.Razor;
@@ -11,19 +50,36 @@
 
     if (Request.Method == "POST")
     {
+        DateTime dt = DateTime.Now;
         string name = Request.Form["Name"];
         string message = Request.Form["Message"];
+        string mail;
+        string token = Request.Form["__RequestVerificationToken"];
+        int status;
 
-        if (Formatting.contactFormat(name, message))
+        if (Request.Form["Mail"] == "")
+            mail = null;
+        else
+            mail = Request.Form["Mail"];
+
+        if (Formatting.contactFormat(name, message, mail))
         {
             name = name.Replace("'", @"\'");
 
-            int status = ISUD.InsertNewMessage(name, "locally", message);
+            status = ISUD.InsertNewMessage(name, "locally", message, dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString(), token, mail);
 
             Response.StatusCode = status;
-
-            Request.Method = "GET";
         }
+        else
+            Response.StatusCode = 2;
+    }
+    if (Request.Method == "GET")
+    {
+        DateTime dt = DateTime.Now;
+
+        int status = ISUD.RemoveMessage(dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString());
+
+        Response.StatusCode = status;
     }
 }
 
@@ -32,21 +88,28 @@
     <h2>Contact Information</h2>
     <p>My projects, contributions websites & applications can be found on open source, in general I am contributing on GitHub, I can be found on social media as well.</p>
     <p>I am open to all suggestions and contributions on GitHub and you can contact me in any other way possible on social media or here by sending me a message.</p>
-    <p>If you want to send a message by mail, please be specific, spam and repetitive text is not accepted.</p>
+    <p>If you want to send a message by mail, please be specific, spam and repetitive text is not accepted, you can send only 1 message per hour.</p>
 </div>
 
 <form id="contact-form" enctype="multipart/form-data" method="POST" action="" onsubmit="HTTPMessageRequest(this);">
-    <div>
+    <div id="credents-container">
         <input class="input-group input-group-text" name="Name" type="text" pattern="\w+" placeholder="Your name" />
         <input class="input-group input-group-text" name="Mail" type="text" pattern="\w+[@@]\w+[.]\w+" placeholder="Your mail address" />
         <select class="input-group custom-select" name="Select">
             <option class="custom-select-lg" label="mail" role="option" value="mail" selected>mail</option>
-            <option class="custom-select-lg" label="locally" role="option" value="locally">locally</option>
+            <option class="custom-select-lg" label="local" role="option" value="local">local</option>
         </select>
     </div>
     <textarea class="text-body" name="Message" placeholder="Your message" maxlength="500"></textarea>
-    <input class="input-group-sm" name="Submit" type="submit" value="Send" />
+    <div id="controllers-contrainer">
+        <input class="input-group-sm" name="Submit" type="submit" value="Send"/>
+        <input id="submit-remove" class="input-group-sm" name="Delete" formmethod="GET" type="button" value="Cancel" onclick="HTTPMessageDelete();" />
+    </div>
 </form>
+
+<div style="margin-top: 25px">
+    <p style="margin: auto; text-align: center; color: red;">if you want to cancel your latest message proceed to the 'Cancel' button, however you cannot do that 1 hour after messaging.</p>
+</div>
 
 <link type="text/css" rel="stylesheet" href="~/css/Contact.css" />
 <script type="text/javascript" src="~/js/Contact.js"></script>

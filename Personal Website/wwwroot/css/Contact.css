@@ -2,6 +2,7 @@
   width: 60%;
   min-height: 200px;
   margin: auto;
+  margin-bottom: 10px;
   padding-left: .375rem;
   padding-right: .375rem;
   padding-top: .375rem;
@@ -17,13 +18,14 @@
   border: 1px solid black;
 }
 
-#contact-form div {
+#contact-form #credents-container {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: auto;
   -webkit-column-gap: 5px;
           column-gap: 5px;
   -ms-grid-column: 1;
@@ -34,15 +36,17 @@
   grid-row-end: 2;
 }
 
-#contact-form div input {
+#contact-form #credents-container input {
   width: 150px;
   height: 30px;
+  margin: auto;
   border: 1px solid black;
 }
 
-#contact-form div select {
+#contact-form #credents-container select {
   width: 165px;
   height: 30px;
+  margin: auto;
   padding: 0 0 0 1.75rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -67,14 +71,42 @@
   border: 1px solid black;
 }
 
-#contact-form input[Name="Submit"] {
-  margin: auto;
+#contact-form #controllers-contrainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33.333333333333% 33.333333333333% 33.333333333333%;
+      grid-template-columns: 33.333333333333% 33.333333333333% 33.333333333333%;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
   -ms-grid-row: 3;
       grid-row-start: 3;
   grid-row-end: 4;
+}
+
+#contact-form #controllers-contrainer input[Name="Submit"] {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
+  margin: auto;
+}
+
+#contact-form #controllers-contrainer #submit-remove {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  grid-column-end: 4;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 #contact-form:focus-within {
