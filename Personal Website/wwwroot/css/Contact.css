@@ -10,8 +10,8 @@
   row-gap: 10px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto;
-      grid-template-columns: auto;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
   -ms-grid-rows: fit-content 60% 20%;
       grid-template-rows: -webkit-fit-content 60% 20%;
       grid-template-rows: fit-content 60% 20%;
@@ -19,6 +19,7 @@
 }
 
 #contact-form #credents-container {
+  width: -webkit-fill-available;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
@@ -114,22 +115,25 @@
           box-shadow: gray 0px 0px 5px;
 }
 
-@media screen and (max-width: 750px) {
-  #contact-form {
-    width: 80%;
-  }
-  #contact-form textarea {
-    min-height: 50px;
-    max-height: 200px;
-    -ms-grid-column: 1;
-        grid-column-start: 1;
-    grid-column-end: 2;
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    grid-row-end: 3;
-    font-family: 'Times New Roman', Times, serif;
-    resize: vertical;
-    border: 1px solid black;
-  }
-}
+/*@media screen and (max-width: 750px) {
+    #contact-form {
+        width: 80%;
+
+        textarea {
+            min-height: 50px;
+            max-height: 200px;
+            
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
+    
+            font-family: 'Times New Roman', Times, serif;
+    
+            resize: vertical;
+    
+            border: $defb;
+        }
+    }
+}*/
 /*# sourceMappingURL=Contact.css.map */

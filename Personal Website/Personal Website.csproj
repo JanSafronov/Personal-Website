@@ -4,6 +4,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Personal_Website</RootNamespace>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>2685f9e0-ff93-425b-9769-85b9a79c3d97</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

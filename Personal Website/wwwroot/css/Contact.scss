@@ -16,12 +16,13 @@ $defb: 1px solid black;
     row-gap: 10px;
 
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-rows: fit-content 60% 20%;
 
     border: $defb;
 
     #credents-container {
+        width: -webkit-fill-available;
         height: max-content;
         
         display: flex;
@@ -115,7 +116,7 @@ $defb: 1px solid black;
     box-shadow: gray 0px 0px 5px;
 }
 
-@media screen and (max-width: 750px) {
+/*@media screen and (max-width: 750px) {
     #contact-form {
         width: 80%;
 
@@ -135,4 +136,4 @@ $defb: 1px solid black;
             border: $defb;
         }
     }
-}
+}*/
