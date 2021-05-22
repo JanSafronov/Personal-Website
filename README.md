@@ -8,8 +8,13 @@ Website about me, services and other stuff alike It is built using ASP.NET Core,
 
 Buy me a coffee :)
 
-[![Buy me a coffee](https://user-images.githubusercontent.com/72037282/119219722-9eda7880-baef-11eb-9842-138d67071fd8.png)](https://www.buymeacoffee.com/JanSafronov)
-
-or
-
-[![PayPal](https://user-images.githubusercontent.com/72037282/119220751-b7995d00-baf4-11eb-8d1d-930df878469e.png)](https://www.paypal.com/paypalme/jansafronov)
+<p align="center">
+  <a href="https://www.buymeacoffee.com/JanSafronov">
+    <img src="https://user-images.githubusercontent.com/72037282/119219722-9eda7880-baef-11eb-9842-138d67071fd8.png" title="Buy me a coffee"
+      height="130">
+  </a>
+  <br>
+  <a href="https://www.paypal.com/paypalme/jansafronov">
+    <img src="https://user-images.githubusercontent.com/72037282/119220751-b7995d00-baf4-11eb-8d1d-930df878469e.png" title="Buy me a coffee">
+  </a>
+</p>
