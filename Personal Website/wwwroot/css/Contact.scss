@@ -116,24 +116,24 @@ $defb: 1px solid black;
     box-shadow: gray 0px 0px 5px;
 }
 
-/*@media screen and (max-width: 750px) {
-    #contact-form {
-        width: 80%;
+#contacts-contain {
 
-        textarea {
-            min-height: 50px;
-            max-height: 200px;
-            
-            grid-column-start: 1;
-            grid-column-end: 2;
-            grid-row-start: 2;
-            grid-row-end: 3;
+    width: fit-content;
+
+    #contacts {
+        width: max-content;
     
-            font-family: 'Times New Roman', Times, serif;
+        margin-top: 5%;
+        margin-left: 5%;
     
-            resize: vertical;
-    
-            border: $defb;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+
+        column-gap: 5px;
+
+        i {
+            margin: auto;
         }
     }
-}*/
+}
