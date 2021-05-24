@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/wwwroot/css/site.css" />
+    <script type="text/javascript" src="/wwwroot/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <header id='top-container'>
+
+    </header>
+
+    <div id="container-main" class="container">
+        <main role="main" class="pb-3">
+            <div>
+                <h2>Contact Information</h2>
+                <p>My projects, contributions websites & applications can be found on open source, in general I am contributing on GitHub, I can be found on social media as well.</p>
+                <p>I am open to all suggestions and contributions on GitHub and you can contact me in any other way possible on social media or here by sending me a message.</p>
+                <p>If you want to send a message by mail, please be specific, spam and repetitive text is not accepted, you can send only 1 message per hour.</p>
+                <p style="color: red;">Messaging is not available in GitHub IO pages due to security reasons, please proceed to the official domain for wide interaction.</p>
+            </div>
+            
+            <form id="contact-form" enctype="multipart/form-data" method="POST" action="" onsubmit="HTTPMessageRequest(this);">
+                <div id="credents-container">
+                    <input class="input-group input-group-text" name="Name" type="text" pattern="\w+" placeholder="Your name" />
+                    <input class="input-group input-group-text" name="Mail" type="text" pattern="\w+[@@]\w+[.]\w+" placeholder="Your mail address" />
+                    <select class="input-group custom-select" name="Select">
+                        <option class="custom-select-lg" label="mail" role="option" value="mail" selected>mail</option>
+                        <option class="custom-select-lg" label="local" role="option" value="local">local</option>
+                    </select>
+                </div>
+                <textarea class="text-body" name="Message" placeholder="Your message" maxlength="500"></textarea>
+                <div id="controllers-contrainer">
+                    <input class="input-group-sm" name="Submit" type="submit" value="Send"/>
+                    <input id="submit-remove" class="input-group-sm" name="Delete" formmethod="GET" type="button" value="Cancel" onclick="HTTPMessageDelete();" />
+                </div>
+            </form>
+            
+            <div style="margin-top: 25px">
+                <p style="margin: auto; text-align: center; color: red;">if you want to cancel your latest message proceed to the 'Cancel' button, however you cannot do that 1 hour after messaging.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer id='bottom-container' class="border-top footer text-muted">
+
+    </footer>
+
+    <link type="text/css" rel="stylesheet" href="/wwwroot/css/Contact.css" />
+    <script type="text/javascript" src="/wwwroot/js/Contact.js"></script>
+
+    <script src="/wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/babel" src="/wwwroot/js/site.js"></script>
+</body>
+</html>

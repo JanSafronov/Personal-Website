@@ -44,7 +44,6 @@
             status = ISUD.InsertNewMessage(name, "locally", message, dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString(), token, mail);
 
             Response.StatusCode = status;
-
             
         }
         else
