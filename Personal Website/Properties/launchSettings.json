@@ -1,9 +1,9 @@
 {
   "iisSettings": {
     "windowsAuthentication": true,
-    "anonymousAuthentication": false,
+    "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/jansite",
+      "applicationUrl": "http://localhost/janwbsite",
       "sslPort": 0
     },
     "iisExpress": {
@@ -12,10 +12,11 @@
     }
   },
   "profiles": {
-    "Jansite": {
-      "commandName": "Project",
-      "sqlDebugging": true,
-      "applicationUrl": "https://www.janwbsite.com"
+    "WSL 2": {
+      "commandName": "WSL2"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress"
     }
   }
 }

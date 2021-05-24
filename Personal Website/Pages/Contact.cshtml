@@ -7,33 +7,8 @@
 @using Microsoft.Net;
 @using Microsoft.Net.Http;
 @using Microsoft.Net.Http.Headers;
-@using Microsoft.IdentityModel;
-@using Microsoft.IdentityModel.Protocols;
-@using Microsoft.Extensions.Http;
 @using Microsoft.DotNet;
 @using Microsoft.DotNet.PlatformAbstractions;
-@using Microsoft.Data;
-@using Microsoft.AspNetCore.Server;
-@using Microsoft.AspNetCore.Server.HttpSys;
-@using Microsoft.AspNetCore.Server.IIS;
-@using Microsoft.AspNetCore.Server.IIS.Core;
-@using Microsoft.AspNetCore.Session;
-@using Microsoft.AspNetCore.Routing;
-@using Microsoft.AspNetCore.Routing.Internal;
-@using Microsoft.AspNetCore.Routing.Tree;
-@using Microsoft.AspNetCore.Identity;
-@using Microsoft.AspNetCore.Http;
-@using Microsoft.AspNetCore.Http.Connections;
-@using Microsoft.AspNetCore.Http.Connections.Features;
-@using Microsoft.AspNetCore.Http.Extensions;
-@using Microsoft.AspNetCore.Http.Features;
-@using Microsoft.AspNetCore.Http.Features.Authentication;
-@using Microsoft.AspNetCore.Http.Headers;
-@using Microsoft.AspNetCore.Connections;
-@using Microsoft.AspNetCore.Connections.Features;
-@using Microsoft.AspNetCore.Authentication;
-@using System.IO.Pipelines;
-@using System.IO.Pipes;
 @using System.Net;
 @using System.Net.Cache;
 @using System.Net.Http;
@@ -69,6 +44,8 @@
             status = ISUD.InsertNewMessage(name, "locally", message, dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString(), token, mail);
 
             Response.StatusCode = status;
+
+            
         }
         else
             Response.StatusCode = 2;

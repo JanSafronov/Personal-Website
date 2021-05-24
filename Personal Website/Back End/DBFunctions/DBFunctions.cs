@@ -52,7 +52,7 @@ namespace Personal_Website.Back_End.DBFunctions
                     // Build Sql command and insert into the adapter
                     sqci = new SqlCommand("[dbo].[Procedure]", conn);
                     sqci.CommandType = CommandType.StoredProcedure;
-                    sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mil", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
+                    sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
                     adapter.InsertCommand = sqci;
                     adapter.InsertCommand.ExecuteNonQuery();
 
@@ -72,7 +72,7 @@ namespace Personal_Website.Back_End.DBFunctions
             // Build Sql command and insert into the adapter
             sqci = new SqlCommand("[dbo].[Procedure]", conn);
             sqci.CommandType = CommandType.StoredProcedure;
-            sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message), new SqlParameter("@mil", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
+            sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
             adapter.InsertCommand = sqci;
             adapter.InsertCommand.ExecuteNonQuery();
 
