@@ -17,6 +17,11 @@
     },
     "IIS Express": {
       "commandName": "IISExpress"
+    },
+    "Local": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\User\\source\\repos\\Personal Website\\Personal Website",
+      "sqlDebugging": true
     }
   }
 }
