@@ -1,5 +1,4 @@
 ﻿
-$("header > nav").removeClass("mb-3");
 $("#container-main").removeClass("container");
 
 document.body.addEventListener("wheel", function (e) {
