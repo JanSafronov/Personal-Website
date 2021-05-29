@@ -4,6 +4,12 @@ class TopPanel extends React.Component {
     constructor(props) {
         super(props);
 
+        this.openSelection = this.openSelection.bind(this);
+    }
+
+    openSelection() {
+        $("#item-select").toggle();
+        
     }
 
     render() {
@@ -25,6 +31,14 @@ class TopPanel extends React.Component {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link text-dark" href="./Contact.html">Contact</a>
+                            </li>
+                            <li id="nav-item-o" className="nav-item" onClick={this.openSelection}>
+                                <a className="nav-link text-dark">Other</a>
+                                <div id='item-select' className="nav-link text-dark">
+                                    <a class="nav-link text-dark" href="./Dev.html">Dev</a>
+                                    <a class="nav-link text-dark" href="./Posts.html">Posts</a> 
+                                </div>
+                                <i class="fas fa-caret-down"></i>
                             </li>
                         </ul>
                         <p className="nav navbar-text">Hello, Anonymous!</p>

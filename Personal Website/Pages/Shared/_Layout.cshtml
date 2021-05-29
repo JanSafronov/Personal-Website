@@ -6,6 +6,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script type="text/javascript" src="https://kit.fontawesome.com/c0f618898f.js"></script>
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 </head>
@@ -29,8 +30,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area=""></a>
+                        <li id="nav-item-o" className="nav-item" >
+                            <a className="nav-link text-dark">Other</a>
+                            <div id='item-select' className="nav-link text-dark">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Dev">Dev</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Posts">Posts</a> 
+                            </div>
+                            <i class="fas fa-caret-down"></i>
                         </li>
                     </ul>
                     <p class="nav navbar-text">Hello, @User.Identity.Name!</p>

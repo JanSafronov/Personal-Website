@@ -51,6 +51,55 @@ button.accept-policy {
     line-height: inherit;
 }
 
+.nav-item {
+    display: flex;
+}
+
+#nav-item-o {
+    padding-right: 7px;
+
+    i {
+        align-self: center;
+
+        position: relative;
+        top: 1px;
+
+        cursor: pointer;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    #item-select {
+        width: 60px;
+        height: max-content;
+    
+        display: none;
+    
+        position: absolute;
+        top: 60px;
+    
+        border: 1px solid black;
+        border-radius: 2px;
+        background-color: white;
+    
+        z-index: 1;
+
+        a {
+            text-align: center;
+
+            padding-right: 0!important;
+            padding-left: 0!important;
+        }
+
+        a:hover {
+            background-color: azure;
+        }
+    }
+    
+}
+
 .nav-item:hover {
     background-color: azure;
 }
