@@ -140,4 +140,11 @@
 #contacts-contain #contacts i {
   margin: auto;
 }
+
+@media (max-width: 900px) {
+  #credents-container input {
+    width: 100px !important;
+    height: 25px !important;
+  }
+}
 /*# sourceMappingURL=Contact.css.map */
