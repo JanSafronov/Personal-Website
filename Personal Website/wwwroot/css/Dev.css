@@ -58,6 +58,8 @@
   height: -moz-max-content;
   height: max-content;
   margin: auto;
+  margin-left: 15px;
+  margin-right: 15px;
   text-align: center;
 }
 
