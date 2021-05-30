@@ -33,6 +33,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact</a>
                         </li>
+                        <li id="nav-item-o" className="nav-item" onClick={this.openSelection}>
+                            <a className="nav-link text-dark">Other</a>
+                            <div id='item-select' className="nav-link text-dark">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Dev">Dev</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Posts">Posts</a>
+                            </div>
+                            <i class="fas fa-caret-down"></i>
+                        </li>
                     </ul>
                     <p class="nav navbar-text">Hello, @User.Identity.Name!</p>
                 </div>
