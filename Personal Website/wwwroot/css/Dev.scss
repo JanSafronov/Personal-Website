@@ -58,6 +58,8 @@ $defb: 1px solid rgb(145, 145, 145);
     }
 
     .repos-fig {
+
+        display: flex;
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 2;
@@ -65,5 +67,21 @@ $defb: 1px solid rgb(145, 145, 145);
 
         border: $defb;
         border-radius: 0 0 5px 0;
+
+        .fig-details {
+
+            margin: auto;
+
+            p {
+                width: max-content;
+                height: max-content;
+
+                margin: auto;
+
+                text-align: center;
+
+                font-size: 15px;
+            }
+        }
     }
 }
