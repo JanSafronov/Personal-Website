@@ -35,10 +35,10 @@ class TopPanel extends React.Component {
                             <li id="nav-item-o" className="nav-item" onClick={this.openSelection}>
                                 <a className="nav-link text-dark">Other</a>
                                 <div id='item-select' className="nav-link text-dark">
-                                    <a class="nav-link text-dark" href="./Dev.html">Dev</a>
-                                    <a class="nav-link text-dark" href="./Posts.html">Posts</a> 
+                                    <a className="nav-link text-dark" href="./Dev.html">Dev</a>
+                                    <a className="nav-link text-dark" href="./Posts.html">Posts</a> 
                                 </div>
-                                <i class="fas fa-caret-down"></i>
+                                <i className="fas fa-caret-down"></i>
                             </li>
                         </ul>
                         <p className="nav navbar-text">Hello, Anonymous!</p>
