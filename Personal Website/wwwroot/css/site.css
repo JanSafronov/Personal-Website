@@ -51,6 +51,53 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.nav-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#nav-item-o {
+  padding-right: 7px;
+}
+
+#nav-item-o i {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+}
+
+#nav-item-o a {
+  cursor: pointer;
+}
+
+#nav-item-o #item-select {
+  width: 60px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: none;
+  position: absolute;
+  top: 60px;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: white;
+  z-index: 1;
+}
+
+#nav-item-o #item-select a {
+  text-align: center;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+#nav-item-o #item-select a:hover {
+  background-color: azure;
+}
+
 .nav-item:hover {
   background-color: azure;
 }
