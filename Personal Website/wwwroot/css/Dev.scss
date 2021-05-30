@@ -87,7 +87,9 @@ $defb: 1px solid rgb(145, 145, 145);
             }
 
             @media screen and (max-width: 700px) {
-                font-size: 5px;
+                p {
+                    font-size: 5px;
+                }
             }
         }
     }
