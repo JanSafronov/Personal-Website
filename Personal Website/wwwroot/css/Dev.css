@@ -1,0 +1,74 @@
+.repos {
+  margin-bottom: 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 75% 25%;
+      grid-template-columns: 75% 25%;
+  -ms-grid-rows: 30px 150px;
+      grid-template-rows: 30px 150px;
+}
+
+.repos nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
+  -webkit-column-gap: 30px;
+          column-gap: 30px;
+  border: 1px solid #919191;
+  border-radius: 5px 5px 0 0;
+}
+
+.repos nav p {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.repos nav p p {
+  margin-left: 5px;
+}
+
+.repos .repos-main {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #919191;
+  border-radius: 0 0 0 5px;
+}
+
+.repos .repos-main h4 {
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: auto;
+  text-align: center;
+}
+
+.repos .repos-fig {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 3;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+  border: 1px solid #919191;
+  border-radius: 0 0 5px 0;
+}
+/*# sourceMappingURL=Dev.css.map */
