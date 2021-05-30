@@ -91,5 +91,12 @@
   margin: auto;
   text-align: center;
   font-size: 15px;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 0.075;
+}
+
+.repos .repos-fig:hover .fig-details p {
+  opacity: 0.925;
 }
 /*# sourceMappingURL=Dev.css.map */
