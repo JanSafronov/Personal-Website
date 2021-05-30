@@ -6,3 +6,7 @@ function openSelection() {
     $("#item-select").toggle();
 
 }
+
+function closeSelection() {
+    $("#item-select").css("display", "none");
+}
