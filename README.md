@@ -3,7 +3,7 @@
 # Personal-Website
 Website about me, services and other stuff alike, it is built using ASP.NET Core, Razor pages and C# code behind with additional tools and languages. 
 
-It was also extended in the "IOPages" branch using only Front End markups and code, React and jQuery in order to show ONLY the layout and style, here on [GitHub pages](https://pomid0rchik.github.io/Personal-Website-Presentation/Personal%20Website/Pages/Index.html).
+It was also extended in the "IOPages" branch using only Front End markups and code, React and jQuery in order to show ONLY the layout and style, here on [GitHub pages](https://pomid0rchik.github.io/Personal-Websit/Personal%20Website/Pages/Index.html).
 
 ## Details
 #### The website is NOT deployed and published yet due to several reasons, memory shortage, economic struggle and payment issues, advice with services or financial help is welcomed and thanked.
