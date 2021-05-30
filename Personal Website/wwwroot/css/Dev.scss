@@ -85,6 +85,10 @@ $defb: 1px solid rgb(145, 145, 145);
 
                 opacity: 0.075;
             }
+
+            @media screen and (max-width: 700px) {
+                font-size: 5px;
+            }
         }
     }
 
