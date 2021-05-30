@@ -64,6 +64,9 @@
 }
 
 .repos .repos-fig {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-grid-column: 2;
       grid-column-start: 2;
   grid-column-end: 3;
@@ -72,5 +75,21 @@
   grid-row-end: 3;
   border: 1px solid #919191;
   border-radius: 0 0 5px 0;
+}
+
+.repos .repos-fig .fig-details {
+  margin: auto;
+}
+
+.repos .repos-fig .fig-details p {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: auto;
+  text-align: center;
+  font-size: 15px;
 }
 /*# sourceMappingURL=Dev.css.map */
