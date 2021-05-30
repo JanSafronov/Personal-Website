@@ -1,5 +1,5 @@
 ﻿
-
+//import 'jquery'
 class TopPanel extends React.Component {
     constructor(props) {
         super(props);
@@ -7,9 +7,20 @@ class TopPanel extends React.Component {
         this.openSelection = this.openSelection.bind(this);
     }
 
+    componentDidMount() {
+        document.body.addEventListener("click", (e) => { 
+            let target = document.getElementById(e.target.id);
+            let op = $("#nav-item-o > *").get();
+            op.push(...$("#item-select > *").get());
+            
+            if (op.findIndex(t => t == target) == -1) { 
+                $("#item-select").css("display", "none");
+            } 
+        });
+    }
+
     openSelection() {
         $("#item-select").toggle();
-        
     }
 
     render() {
@@ -32,7 +43,7 @@ class TopPanel extends React.Component {
                             <li className="nav-item">
                                 <a className="nav-link text-dark" href="./Contact.html">Contact</a>
                             </li>
-                            <li id="nav-item-o" className="nav-item" onClick={this.openSelection} onPointerLeave={() => {$("#item-select").css("display", "none")}}>
+                            <li id="nav-item-o" className="nav-item" onClick={this.openSelection}>
                                 <a className="nav-link text-dark">Other</a>
                                 <div id='item-select' className="nav-link text-dark">
                                     <a className="nav-link text-dark" href="./Dev.html">Dev</a>
