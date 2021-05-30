@@ -32,7 +32,7 @@ class TopPanel extends React.Component {
                             <li className="nav-item">
                                 <a className="nav-link text-dark" href="./Contact.html">Contact</a>
                             </li>
-                            <li id="nav-item-o" className="nav-item" onClick={this.openSelection}>
+                            <li id="nav-item-o" className="nav-item" onClick={this.openSelection} onPointerLeave={() => {$("#item-select").css("display", "none")}}>
                                 <a className="nav-link text-dark">Other</a>
                                 <div id='item-select' className="nav-link text-dark">
                                     <a className="nav-link text-dark" href="./Dev.html">Dev</a>
