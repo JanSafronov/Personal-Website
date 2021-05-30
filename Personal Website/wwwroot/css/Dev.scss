@@ -79,8 +79,19 @@ $defb: 1px solid rgb(145, 145, 145);
                 margin: auto;
 
                 text-align: center;
-
                 font-size: 15px;
+
+                transition: opacity 1s;
+
+                opacity: 0.075;
+            }
+        }
+    }
+
+    .repos-fig:hover {
+        .fig-details {
+            p {
+                opacity: 0.925;
             }
         }
     }
