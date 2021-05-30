@@ -16,6 +16,7 @@
       grid-template-rows: -webkit-fit-content 60% 20%;
       grid-template-rows: fit-content 60% 20%;
   border: 1px solid black;
+  border-radius: 3px;
 }
 
 #contact-form #credents-container {

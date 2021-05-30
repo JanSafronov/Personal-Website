@@ -20,6 +20,7 @@ $defb: 1px solid black;
     grid-template-rows: fit-content 60% 20%;
 
     border: $defb;
+    border-radius: 3px;
 
     #credents-container {
         width: -webkit-fill-available;
