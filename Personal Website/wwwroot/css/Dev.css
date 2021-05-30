@@ -96,6 +96,12 @@
   opacity: 0.075;
 }
 
+@media screen and (max-width: 500px) {
+  .repos .repos-fig .fig-details p {
+    font-size: 10px;
+  }
+}
+
 .repos .repos-fig:hover .fig-details p {
   opacity: 0.925;
 }
