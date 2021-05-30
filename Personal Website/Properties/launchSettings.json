@@ -12,9 +12,6 @@
     }
   },
   "profiles": {
-    "WSL 2": {
-      "commandName": "WSL2"
-    },
     "IIS Express": {
       "commandName": "IISExpress"
     }
