@@ -52,7 +52,7 @@ ReactDOM.render(function () {
         status: "In process",
         type: "Windows Application",
         main: "WPF desktop application equipped with table management and calculation of values and transformation of data and import of various table formats.",
-        href: "https://github.com/Pomid0rchik/ValueTB"
+        href: "https://github.com/Pomid0rchik/ValueTB-WPF-Application"
     }, {
         title: "'Online Dish' Website",
         status: "In process",
