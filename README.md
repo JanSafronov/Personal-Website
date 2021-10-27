@@ -6,4 +6,4 @@ Website about me, services and other stuff alike, it is built using ASP.NET Core
 It was also extended in the "IOPages" branch using only Front End markups and code, React and jQuery in order to show ONLY the layout and style, here on [GitHub pages](https://pomid0rchik.github.io/Personal-Website/Personal%20Website/Pages/Index.html).
 
 ## Details
-#### The website is NOT deployed and published yet
+#### The website is NOT deployed and published yet.
