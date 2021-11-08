@@ -11,6 +11,7 @@ function HTTPMessageRequest(form) {
     let xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function () {
+        alert(this.status);
         if (this.readyState == 4) {
             if (this.status == 1) {
                 alert("Message sent");

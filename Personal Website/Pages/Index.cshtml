@@ -1,8 +1,19 @@
 ﻿@page
 @model IndexModel
+@using System.Text;
+@using Back_End.DBFunctions;
 @{
-    ViewData["Title"] = "Home Page";
+    if (Request.Method == "GET")
+    {
+        Response.Headers.Add("Resources", SQLCrud.GetResources("Website"));
+    }
+
+    ViewData["Title"] = "Home";
 }
+
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 <div class="text-center">
     <figure>
@@ -10,6 +21,10 @@
     </figure>
     <h1 class="display-4 index-text">Welcome to My Website Page</h1>
     <p class="index-text">Here you can look at my profile and projects and many more things that I have done or the companies and projects that I have worked with.</p>
+    <div id="items-container">
+
+    </div>
 </div>
 <link rel="stylesheet" type="text/css" href="~/css/Index.css" />
-<script type="text/javascript" src="~/js/Index.js"></script>
+<script type="text/babel" src="~/js/Index.js"></script>
+<script type="text/babel" src="~/js/site.js"></script>

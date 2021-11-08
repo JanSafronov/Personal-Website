@@ -12,8 +12,6 @@ header {
 
 #container-main {
 
-
-
     .text-center {
         figure {
             height: 100%;
@@ -22,6 +20,15 @@ header {
                 height: 100%;
                 width: 100%;
             }
+        }
+
+        #items-container {
+            width: 80%;
+            height: 600px;
+
+            margin: auto;
+
+            display: flex;
         }
     }
 }

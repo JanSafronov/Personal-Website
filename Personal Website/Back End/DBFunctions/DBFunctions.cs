@@ -24,7 +24,7 @@ using Microsoft.AspNetCore.Server.IIS.Core;
 
 namespace Personal_Website.Back_End.DBFunctions
 {
-    public class ISUD
+    public class SQLCrud
     {
         public static int InsertNewMessage(string name, string type, string message, DateTime date, string ip, string token, string mail = null)
         {
@@ -36,7 +36,7 @@ namespace Personal_Website.Back_End.DBFunctions
 
             // Initialization
             SqlDataAdapter adapter;
-            SqlCommand sqci;
+            SqlCommand sqlcmd;
 
             DateTime dt = GetMaxDate(ip);
 
@@ -50,11 +50,14 @@ namespace Personal_Website.Back_End.DBFunctions
                     adapter = new SqlDataAdapter();
 
                     // Build Sql command and insert into the adapter
-                    sqci = new SqlCommand("[dbo].[Procedure]", conn);
-                    sqci.CommandType = CommandType.StoredProcedure;
-                    sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
-                    adapter.InsertCommand = sqci;
-                    adapter.InsertCommand.ExecuteNonQuery();
+                    sqlcmd = new SqlCommand("[dbo].[MessageInsert]", conn);
+                    sqlcmd.CommandType = CommandType.StoredProcedure;
+                    sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date).ToString()), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
+                    return sqlcmd.ExecuteNonQuery();
+                    adapter.InsertCommand = sqlcmd;
+                    return adapter.InsertCommand.ExecuteNonQuery();
+                    /*adapter.InsertCommand.ExecuteReader();
+                    adapter.SelectCommand.ExecuteReader();*/
 
                     conn.Close();
 
@@ -70,11 +73,14 @@ namespace Personal_Website.Back_End.DBFunctions
             adapter = new SqlDataAdapter();
 
             // Build Sql command and insert into the adapter
-            sqci = new SqlCommand("[dbo].[Procedure]", conn);
-            sqci.CommandType = CommandType.StoredProcedure;
-            sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
-            adapter.InsertCommand = sqci;
-            adapter.InsertCommand.ExecuteNonQuery();
+            sqlcmd = new SqlCommand("[dbo].[MessageInsert]", conn);
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date).ToString()), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
+            return sqlcmd.ExecuteNonQuery();
+            adapter.InsertCommand = sqlcmd;
+            return adapter.InsertCommand.ExecuteNonQuery();
+            /*adapter.InsertCommand = sqlcmd;
+            adapter.InsertCommand.ExecuteNonQuery();*/
 
             // Close connection
             conn.Close();
@@ -92,7 +98,7 @@ namespace Personal_Website.Back_End.DBFunctions
 
             // Initialization
             SqlDataAdapter adapter;
-            SqlCommand sqci;
+            SqlCommand sqlcmd;
 
             DateTime dt = GetMaxDate(ip);
 
@@ -107,10 +113,10 @@ namespace Personal_Website.Back_End.DBFunctions
                     adapter = new SqlDataAdapter();
 
                     // Build Sql command and insert into the adapter
-                    sqci = new SqlCommand("[dbo].[Delete]", conn);
-                    sqci.CommandType = CommandType.StoredProcedure;
-                    sqci.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@ip", ip), new SqlParameter("@date", dt) });
-                    adapter.InsertCommand = sqci;
+                    sqlcmd = new SqlCommand("[dbo].[Delete]", conn);
+                    sqlcmd.CommandType = CommandType.StoredProcedure;
+                    sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@ip", ip), new SqlParameter("@date", dt) });
+                    adapter.InsertCommand = sqlcmd;
                     adapter.InsertCommand.ExecuteNonQuery();
 
                     conn.Close();
@@ -157,6 +163,34 @@ namespace Personal_Website.Back_End.DBFunctions
 
             sdr.Close();
             return sdtmax.Value;
+        }
+
+        public static string[] GetResources(string type) {
+
+            // Connection to the data source
+            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+
+            // Open connection
+            conn.Open();
+
+            // Retrieve Messages data tables
+            SqlCommand sqlcmd = new SqlCommand("[dbo].[ResourceSelect]", conn);
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@type", type) });
+            SqlDataReader sdr = sqlcmd.ExecuteReader();
+
+            List<string> resources = new List<string>();
+
+            int i = 0;
+            while (sdr.Read())
+            {
+                resources.Add(sdr.GetTextReader(1).ReadLine());
+                i++;
+            }
+
+            sdr.Close();
+
+            return resources.ToArray();
         }
     }
 }

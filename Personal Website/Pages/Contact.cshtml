@@ -32,7 +32,7 @@
         string token = Request.Form["__RequestVerificationToken"];
         int status;
 
-        if (Request.Form["Mail"] == "")
+        if (Request.Form["Select"] == "local")
             mail = null;
         else
             mail = Request.Form["Mail"];
@@ -41,11 +41,12 @@
         {
             name = name.Replace("'", @"\'");
 
-            status = ISUD.InsertNewMessage(name, "locally", message, dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString(), token, mail);
+            if (Request.Form["Select"] == "local")
+                mail = "";
+
+            status = SQLCrud.InsertNewMessage(name, "locally", message, dt, HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString(), token, mail);
 
             Response.StatusCode = status;
-
-
         }
         else
             Response.StatusCode = 2;
@@ -54,7 +55,7 @@
     {
         DateTime dt = DateTime.Now;
 
-        int status = ISUD.RemoveMessage(dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString());
+        int status = SQLCrud.RemoveMessage(dt, HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString());
 
         Response.StatusCode = status;
     }
@@ -70,7 +71,7 @@
     <p>If you want to send a message by mail, please be specific, spam and repetitive text is not accepted, you can send only 1 message per hour.</p>
 </div>
 
-<form id="contact-form" enctype="multipart/form-data" method="POST" action="" onsubmit="HTTPMessageRequest(this);">
+<form id="contact-form" enctype="multipart/form-data" method="POST" action="" onsubmit="">
     <div id="credents-container">
         <input class="input-group input-group-text" name="Name" type="text" pattern="\w+" placeholder="Your name" />
         <input class="input-group input-group-text" name="Mail" type="text" pattern="\w+[@@]\w+[.]\w+" placeholder="Your email" />

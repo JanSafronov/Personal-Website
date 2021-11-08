@@ -98,6 +98,77 @@ button.accept-policy {
   background-color: azure;
 }
 
+.pres_block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: max-content auto;
+      grid-template-rows: -webkit-max-content auto;
+      grid-template-rows: max-content auto;
+  -webkit-box-shadow: 5px 5px 2px grey;
+          box-shadow: 5px 5px 2px grey;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.pres_block .pres_src {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px solid black;
+  border-radius: 5px 5px 0 0;
+}
+
+.pres_block .pres_src #temp_svg {
+  -webkit-transition-duration: 400ms;
+          transition-duration: 400ms;
+  -webkit-transition-property: all;
+  transition-property: all;
+  cursor: pointer;
+}
+
+.pres_block .pres_src #temp_svg:hover {
+  width: 30px;
+  height: 30px;
+}
+
+.pres_block .pres_src #temp_svg:hover path {
+  fill: #8fe9cb;
+}
+
+.pres_block .pres_content {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  grid-row-end: 3;
+  border: 1px solid black;
+  border-radius: 0 0 5px 5px;
+}
+
+.pres_block .pres_content hr {
+  width: 60%;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  background: grey;
+}
+
 .nav-item:hover {
   background-color: azure;
 }

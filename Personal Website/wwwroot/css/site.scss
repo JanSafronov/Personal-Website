@@ -1,4 +1,5 @@
-﻿
+﻿$defb: 1px solid black;
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -88,6 +89,69 @@ button.accept-policy {
 
         a:hover {
             background-color: azure;
+        }
+    }
+}
+
+.pres_block {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: max-content auto;
+
+    box-shadow: 5px 5px 2px grey;
+
+    border-radius: 5px 5px 5px 5px;
+
+    .pres_src {
+        display: flex;
+
+        padding: 5px;
+
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        border: $defb;
+        border-radius: 5px 5px 0 0;
+
+        #temp_svg {
+            transition-duration: 400ms;
+            transition-property: all;
+
+            cursor: pointer;
+        }
+
+        #temp_svg:hover {
+            width: 30px;
+            height: 30px;
+
+            path {
+                fill: rgb(143, 233, 203);
+            }
+        }
+    }
+
+    .pres_content {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+        border: $defb;
+        border-radius: 0 0 5px 5px;
+
+        hr {
+            width: 60%;
+
+            margin-top: 2.5px;
+            margin-bottom: 2.5px;
+
+            background: grey;
         }
     }
 }
