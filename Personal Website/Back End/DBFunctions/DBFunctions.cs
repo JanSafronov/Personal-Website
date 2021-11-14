@@ -28,8 +28,7 @@ namespace Personal_Website.Back_End.DBFunctions
     {
         public static int InsertNewMessage(string name, string type, string message, DateTime date, string ip, string token, string mail = null)
         {
-            // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             // Open connection
             conn.Open();
@@ -52,7 +51,7 @@ namespace Personal_Website.Back_End.DBFunctions
                     // Build Sql command and insert into the adapter
                     sqlcmd = new SqlCommand("[dbo].[MessageInsert]", conn);
                     sqlcmd.CommandType = CommandType.StoredProcedure;
-                    sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date).ToString()), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
+                    sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
                     return sqlcmd.ExecuteNonQuery();
                     adapter.InsertCommand = sqlcmd;
                     return adapter.InsertCommand.ExecuteNonQuery();
@@ -75,7 +74,7 @@ namespace Personal_Website.Back_End.DBFunctions
             // Build Sql command and insert into the adapter
             sqlcmd = new SqlCommand("[dbo].[MessageInsert]", conn);
             sqlcmd.CommandType = CommandType.StoredProcedure;
-            sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date).ToString()), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
+            sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
             return sqlcmd.ExecuteNonQuery();
             adapter.InsertCommand = sqlcmd;
             return adapter.InsertCommand.ExecuteNonQuery();
@@ -91,7 +90,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static int RemoveMessage(DateTime date, string ip)
         {
             // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             // Open connection
             conn.Open();
@@ -133,7 +132,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static DateTime GetMaxDate(string ip)
         {
             // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             // Open connection
             conn.Open();
@@ -168,8 +167,8 @@ namespace Personal_Website.Back_End.DBFunctions
         public static string[] GetResources(string type) {
 
             // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Private;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-
+            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            
             // Open connection
             conn.Open();
 

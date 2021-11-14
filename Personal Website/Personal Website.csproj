@@ -5,6 +5,9 @@
     <RootNamespace>Personal_Website</RootNamespace>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
     <UserSecretsId>2685f9e0-ff93-425b-9769-85b9a79c3d97</UserSecretsId>
+    <PackageProjectUrl>https://github.com/JanSafronov/Personal-Website</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JanSafronov/Personal-Website</RepositoryUrl>
+    <StartupObject>Personal_Website.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Core" Version="1.21.0" />
     <PackageReference Include="jquery.TypeScript.DefinitelyTyped" Version="3.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.5" />
@@ -41,5 +45,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

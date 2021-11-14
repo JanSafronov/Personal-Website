@@ -3,7 +3,7 @@
     "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/janwbsite",
+      "applicationUrl": "https://localhost",
       "sslPort": 0
     },
     "iisExpress": {
@@ -15,10 +15,19 @@
     "Local": {
       "commandName": "Project",
       "workingDirectory": "C:\\Users\\User\\source\\repos\\Personal Website\\Personal Website",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
       "sqlDebugging": true
     },
-    "newProfile1": {
-      "commandName": "IISExpress"
+    "IISHost": {
+      "commandName": "IIS",
+      "workingDirectory": "C:\\Users\\User\\source\\repos\\Personal Website\\Personal Website",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "sqlDebugging": true
     }
   }
 }
