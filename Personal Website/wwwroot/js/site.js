@@ -1,4 +1,24 @@
-﻿class PresBlock extends React.Component {
+﻿class Block extends React.Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+        return (
+            <div className="pres_block" style={{ "width": this.props.width, "height": this.props.height }}>
+                <div id={"pres_src_" + this.props.ID} className="pres_src" style={{ "background": this.props.background }}>
+                    <img src={this.props.img} width="50" />
+                    <h2>{this.props.title}</h2>
+                </div>
+                <div id={"pres_content_" + this.props.ID} className="pres_content">
+                </div>
+            </div>
+        );
+    }
+}
+
+class PresBlock extends React.Component {
     constructor(props) {
         super(props);
 
@@ -16,7 +36,7 @@
                     {
                         function () {
                             let r = []
-                            for (let i = 0; i < resources.length; i++){
+                            for (let i = 0; i < resources.length; i++) {
                                 r.push(<a href={resources[i]}>{resources[i]}</a>);
                                 r.push(<hr />);
                             }
@@ -73,8 +93,15 @@ function Startup() {
     req.done(function () {
         let l = [{
             title: "Websites",
-            background: "rgb(168, 168, 168, 0.8)",
-            width: "40%",
+            background: "rgba(168, 168, 168, 0.8)",
+            width: "220px",
+            height: "240px"
+        },
+        {
+            title: "AuthoBson",
+            img: "media/icon.png",
+            background: "rgb(111, 202, 117)",
+            width: "280px",
             height: "240px"
         }];
         let r = [];
@@ -83,10 +110,9 @@ function Startup() {
         for (let i = 0; i < 1; i++) {
             r.push(<PresBlock ID={i} title={l[i].title} source={resources} background={l[i].background} width={l[i].width} height={l[i].height} />);
         }
+        r.push(<Block ID={1} title={l[1].title} img={l[1].img} background={l[1].background} width={l[1].width} height={l[1].height} />)
 
-        ReactDOM.render(r[0], document.getElementById("items-container"));
-
-        ReactDOM.render(<SVGElement />, document.getElementById("pres_src_0"));
+        ReactDOM.render(r, document.getElementById("items-container"));
     });
 }
 

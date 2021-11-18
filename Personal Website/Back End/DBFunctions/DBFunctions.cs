@@ -28,7 +28,7 @@ namespace Personal_Website.Back_End.DBFunctions
     {
         public static int InsertNewMessage(string name, string type, string message, DateTime date, string ip, string token, string mail = null)
         {
-            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             // Open connection
             conn.Open();
@@ -46,17 +46,13 @@ namespace Personal_Website.Back_End.DBFunctions
                 if (trip || limit)
                 {
                     // Data adapter
-                    adapter = new SqlDataAdapter();
+                    adapter = new();
 
                     // Build Sql command and insert into the adapter
-                    sqlcmd = new SqlCommand("[dbo].[MessageInsert]", conn);
+                    sqlcmd = new("[dbo].[MessageInsert]", conn);
                     sqlcmd.CommandType = CommandType.StoredProcedure;
                     sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
-                    return sqlcmd.ExecuteNonQuery();
-                    adapter.InsertCommand = sqlcmd;
-                    return adapter.InsertCommand.ExecuteNonQuery();
-                    /*adapter.InsertCommand.ExecuteReader();
-                    adapter.SelectCommand.ExecuteReader();*/
+                    sqlcmd.ExecuteNonQuery();
 
                     conn.Close();
 
@@ -69,17 +65,13 @@ namespace Personal_Website.Back_End.DBFunctions
             }
 
             // Data adapter
-            adapter = new SqlDataAdapter();
+            adapter = new();
 
             // Build Sql command and insert into the adapter
-            sqlcmd = new SqlCommand("[dbo].[MessageInsert]", conn);
+            sqlcmd = new("[dbo].[MessageInsert]", conn);
             sqlcmd.CommandType = CommandType.StoredProcedure;
             sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
-            return sqlcmd.ExecuteNonQuery();
-            adapter.InsertCommand = sqlcmd;
-            return adapter.InsertCommand.ExecuteNonQuery();
-            /*adapter.InsertCommand = sqlcmd;
-            adapter.InsertCommand.ExecuteNonQuery();*/
+            sqlcmd.ExecuteNonQuery();
 
             // Close connection
             conn.Close();
@@ -90,7 +82,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static int RemoveMessage(DateTime date, string ip)
         {
             // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             // Open connection
             conn.Open();
@@ -109,10 +101,10 @@ namespace Personal_Website.Back_End.DBFunctions
                 if (!trip && !limit)
                 {
                     // Data adapter
-                    adapter = new SqlDataAdapter();
+                    adapter = new();
 
                     // Build Sql command and insert into the adapter
-                    sqlcmd = new SqlCommand("[dbo].[Delete]", conn);
+                    sqlcmd = new("[dbo].[Delete]", conn);
                     sqlcmd.CommandType = CommandType.StoredProcedure;
                     sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@ip", ip), new SqlParameter("@date", dt) });
                     adapter.InsertCommand = sqlcmd;
@@ -132,13 +124,13 @@ namespace Personal_Website.Back_End.DBFunctions
         public static DateTime GetMaxDate(string ip)
         {
             // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
             // Open connection
             conn.Open();
 
             // Retrieve Messages data tables
-            SqlCommand sqlcmd = new SqlCommand("[dbo].[UptoDate]", conn);
+            SqlCommand sqlcmd = new("[dbo].[UptoDate]", conn);
             sqlcmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader sdr = sqlcmd.ExecuteReader();
             
@@ -167,13 +159,13 @@ namespace Personal_Website.Back_End.DBFunctions
         public static string[] GetResources(string type) {
 
             // Connection to the data source
-            SqlConnection conn = new SqlConnection(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             
             // Open connection
             conn.Open();
 
             // Retrieve Messages data tables
-            SqlCommand sqlcmd = new SqlCommand("[dbo].[ResourceSelect]", conn);
+            SqlCommand sqlcmd = new("[dbo].[ResourceSelect]", conn);
             sqlcmd.CommandType = CommandType.StoredProcedure;
             sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@type", type) });
             SqlDataReader sdr = sqlcmd.ExecuteReader();

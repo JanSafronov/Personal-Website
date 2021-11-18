@@ -106,9 +106,14 @@ button.accept-policy {
   -ms-grid-rows: max-content auto;
       grid-template-rows: -webkit-max-content auto;
       grid-template-rows: max-content auto;
-  -webkit-box-shadow: 5px 5px 2px grey;
-          box-shadow: 5px 5px 2px grey;
+  -webkit-box-shadow: 2.5px 2.5px 2px grey;
+          box-shadow: 2.5px 2.5px 2px grey;
+  background: rgb(111, 202, 117);
   border-radius: 5px 5px 5px 5px;
+}
+
+.pres-block:hover {
+    box-shadow: 5px 5px 2px grey;
 }
 
 .pres_block .pres_src {

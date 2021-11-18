@@ -48,12 +48,6 @@ class Repository extends React.Component {
 
 ReactDOM.render(function () {
     let l = [{
-        title: "RESTful MongoDBUser API",
-        status: "In Process",
-        type: "RESTful API",
-        main: "User based RESTful API made with ASP.NET Core and based on MongoDB NoSQL database program. Registration, secure operations and interactions between users and more aspects are included in the program.",
-        href: "https://github.com/Pomid0rchik/RESTful-MongoDBUser-API"
-    }, {
         title: "'ValueTB' Application",
         status: "In process",
         type: "Windows Application",
@@ -73,7 +67,7 @@ ReactDOM.render(function () {
         href: "https://github.com/Pomid0rchik/DebunkInfo-WebSite-Presentation"
     }];
     let r = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < l.length; i++) {
         r.push(<Repository ID={i} title={l[i].title} status={l[i].status} type={l[i].type} main={l[i].main} Href={l[i].href}/>);
     }
     return r;

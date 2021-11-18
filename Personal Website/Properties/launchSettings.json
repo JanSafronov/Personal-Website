@@ -16,7 +16,7 @@
       "commandName": "Project",
       "workingDirectory": "C:\\Users\\User\\source\\repos\\Personal Website\\Personal Website",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "sqlDebugging": true
     },
