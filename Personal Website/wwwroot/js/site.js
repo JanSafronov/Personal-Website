@@ -6,10 +6,10 @@
 
     render() {
         return (
-            <div className="pres_block" style={{ "width": this.props.width, "height": this.props.height }}>
+            <div id={"pres_block_" + this.props.ID} className="pres_block" style={{ "width": this.props.width, "height": this.props.height }}>
                 <div id={"pres_src_" + this.props.ID} className="pres_src" style={{ "background": this.props.background }}>
-                    <img src={this.props.img} width="50" />
-                    <h2>{this.props.title}</h2>
+                    <img src={this.props.img} width="25" />
+                    
                 </div>
                 <div id={"pres_content_" + this.props.ID} className="pres_content">
                 </div>
@@ -27,10 +27,10 @@ class PresBlock extends React.Component {
     render() {
         let resources = this.props.source;
         return (
-            <div className="pres_block" style={{"width": this.props.width, "height": this.props.height}}>
+            <div id={"pres_block_" + this.props.ID} className="pres_block" style={{"width": this.props.width, "height": this.props.height}}>
                 <div id={"pres_src_" + this.props.ID} className="pres_src" style={{ "background": this.props.background }}>
                     <SVGElement />
-                    <h2>{this.props.title}</h2>
+                    
                 </div>
                 <div id={"pres_content_" + this.props.ID} className="pres_content">
                     {
