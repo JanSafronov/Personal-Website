@@ -11,7 +11,7 @@ namespace Personal_Website.Back_End.Security
     {
         public static bool contactFormat(string name, string message, string email = null)
         {
-            Regex npat = new Regex(@"^\w{1,50}$");
+            Regex npat = new Regex(@"^\w{1,50}\s\w{1,50}$");
             Regex mpat = new Regex(@"\w*[']?\w*\s*");
 
             bool b = npat.IsMatch(name) && mpat.IsMatch(message);

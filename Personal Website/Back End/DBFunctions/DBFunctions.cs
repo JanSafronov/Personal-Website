@@ -28,7 +28,7 @@ namespace Personal_Website.Back_End.DBFunctions
     {
         public static int InsertNewMessage(string name, string type, string message, DateTime date, string ip, string token, string mail = null)
         {
-            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Data Source=jansafronov.database.windows.net;Initial Catalog=Content;User ID=Jansafr;Password=A42a24r22battle;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             // Open connection
             conn.Open();
@@ -52,7 +52,11 @@ namespace Personal_Website.Back_End.DBFunctions
                     sqlcmd = new("[dbo].[MessageInsert]", conn);
                     sqlcmd.CommandType = CommandType.StoredProcedure;
                     sqlcmd.Parameters.AddRange(new SqlParameter[] { new SqlParameter("@name", name), new SqlParameter("@message", message + "postfixstore"), new SqlParameter("@mail", mail), new SqlParameter("@date", new SqlDateTime(date)), new SqlParameter("@ip", ip), new SqlParameter("@token", token) });
-                    sqlcmd.ExecuteNonQuery();
+                    return sqlcmd.ExecuteNonQuery();
+                    adapter.InsertCommand = sqlcmd;
+                    return adapter.InsertCommand.ExecuteNonQuery();
+                    /*adapter.InsertCommand.ExecuteReader();
+                    adapter.SelectCommand.ExecuteReader();*/
 
                     conn.Close();
 
@@ -82,7 +86,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static int RemoveMessage(DateTime date, string ip)
         {
             // Connection to the data source
-            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Data Source=jansafronov.database.windows.net;Initial Catalog=Content;User ID=Jansafr;Password=A42a24r22battle;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             // Open connection
             conn.Open();
@@ -124,7 +128,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static DateTime GetMaxDate(string ip)
         {
             // Connection to the data source
-            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Data Source=jansafronov.database.windows.net;Initial Catalog=Content;User ID=Jansafr;Password=A42a24r22battle;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
             // Open connection
             conn.Open();
@@ -159,7 +163,7 @@ namespace Personal_Website.Back_End.DBFunctions
         public static string[] GetResources(string type) {
 
             // Connection to the data source
-            SqlConnection conn = new(@"Server=tcp:jansafronov.database.windows.net,1433;Initial Catalog=Content;Persist Security Info=False;User ID=jansafr;Password=A42a24r22battle;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new(@"Data Source=jansafronov.database.windows.net;Initial Catalog=Content;User ID=Jansafr;Password=A42a24r22battle;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             
             // Open connection
             conn.Open();

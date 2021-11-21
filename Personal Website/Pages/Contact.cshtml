@@ -73,7 +73,7 @@
 
 <form id="contact-form" enctype="multipart/form-data" method="POST" action="" onsubmit="">
     <div id="credents-container">
-        <input class="input-group input-group-text" name="Name" type="text" pattern="\w+\s\w+" placeholder="Your name" />
+        <input class="input-group input-group-text" name="Name" type="text" pattern="^\w{1,50}\s\w{1,50}$" placeholder="Your name" />
         <input class="input-group input-group-text" name="Mail" type="text" pattern="\w+[@@]\w+[.]\w+" placeholder="Your email" />
         <select class="input-group custom-select" name="Select">
             <option class="custom-select-lg" label="mail" role="option" value="mail" selected>mail</option>

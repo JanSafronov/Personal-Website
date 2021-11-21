@@ -57,7 +57,7 @@ class SVGElement extends React.Component {
     }
 
     handleClick() {
-        window.open("https://github.com/Pomid0rchik", "_blank");
+        window.open("https://github.com/JanSafronov", "_blank");
     }
 
     render() {
