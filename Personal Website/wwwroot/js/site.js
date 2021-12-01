@@ -30,14 +30,15 @@ class PresBlock extends React.Component {
             <div id={"pres_block_" + this.props.ID} className="pres_block" style={{"width": this.props.width, "height": this.props.height}}>
                 <div id={"pres_src_" + this.props.ID} className="pres_src" style={{ "background": this.props.background }}>
                     <SVGElement />
-                    
+                    {this.props.title}
                 </div>
                 <div id={"pres_content_" + this.props.ID} className="pres_content">
                     {
                         function () {
                             let r = []
                             for (let i = 0; i < resources.length; i++) {
-                                r.push(<a href={resources[i]}>{resources[i]}</a>);
+                                let pair = resources[i].split(", ");
+                                r.push(<a href={pair[1]}>{pair[0]}</a>);
                                 r.push(<hr />);
                             }
                             return r;
@@ -109,6 +110,7 @@ function Startup() {
 
         for (let i = 0; i < 1; i++) {
             r.push(<PresBlock ID={i} title={l[i].title} source={resources} background={l[i].background} width={l[i].width} height={l[i].height} />);
+            alert(resources);
         }
         r.push(<Block ID={1} title={l[1].title} img={l[1].img} background={l[1].background} width={l[1].width} height={l[1].height} />)
 

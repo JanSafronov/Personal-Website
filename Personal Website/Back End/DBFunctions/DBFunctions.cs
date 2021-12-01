@@ -179,7 +179,7 @@ namespace Personal_Website.Back_End.DBFunctions
             int i = 0;
             while (sdr.Read())
             {
-                resources.Add(sdr.GetTextReader(1).ReadLine());
+                resources.Add(sdr.GetTextReader(0).ReadLine() + ", " + sdr.GetTextReader(1).ReadLine());
                 i++;
             }
 
