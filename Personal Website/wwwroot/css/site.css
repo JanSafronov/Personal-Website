@@ -153,6 +153,13 @@ button.accept-policy {
   fill: #8fe9cb;
 }
 
+.pres_block .pres_src p {
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 5px;
+  line-height: 22px;
+}
+
 .pres_block .pres_content {
   height: 100%;
   display: -webkit-box;

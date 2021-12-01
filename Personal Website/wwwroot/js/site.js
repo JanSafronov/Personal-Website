@@ -9,7 +9,7 @@
             <div id={"pres_block_" + this.props.ID} className="pres_block" style={{ "width": this.props.width, "height": this.props.height }}>
                 <div id={"pres_src_" + this.props.ID} className="pres_src" style={{ "background": this.props.background }}>
                     <img src={this.props.img} width="25" />
-                    
+                    <p>{this.props.title}</p>
                 </div>
                 <div id={"pres_content_" + this.props.ID} className="pres_content">
                 </div>
@@ -30,15 +30,14 @@ class PresBlock extends React.Component {
             <div id={"pres_block_" + this.props.ID} className="pres_block" style={{"width": this.props.width, "height": this.props.height}}>
                 <div id={"pres_src_" + this.props.ID} className="pres_src" style={{ "background": this.props.background }}>
                     <SVGElement />
-                    {this.props.title}
+                    <p>{this.props.title}</p>
                 </div>
                 <div id={"pres_content_" + this.props.ID} className="pres_content">
                     {
                         function () {
                             let r = []
-                            for (let i = 0; i < resources.length; i++) {
-                                let pair = resources[i].split(", ");
-                                r.push(<a href={pair[1]}>{pair[0]}</a>);
+                            for (let i = 0; i < resources.length; i += 2) {
+                                r.push(<a href={resources[i + 1]}>{resources[i]}</a>);
                                 r.push(<hr />);
                             }
                             return r;
@@ -78,16 +77,6 @@ function closeSelection() {
     $("#item-select").css("display", "none");
 }
 
-/*document.addEventListener("click", (e) => {
-    let target = document.getElementById(e.target.id);
-    let op = $("#nav-item-o > *").get();
-    op.push(...$("#item-select > *").get());
-
-    if (op.findIndex(t => t == target) == -1) {
-        $("#item-select").css("display", "none");
-    }
-});*/
-
 function Startup() {
     var req = $.ajax("");
 
@@ -106,11 +95,10 @@ function Startup() {
             height: "240px"
         }];
         let r = [];
-        let resources = req.getResponseHeader("Resources").split(", ");
+        let resources = req.getResponseHeader("Resources").split(",");
 
         for (let i = 0; i < 1; i++) {
             r.push(<PresBlock ID={i} title={l[i].title} source={resources} background={l[i].background} width={l[i].width} height={l[i].height} />);
-            alert(resources);
         }
         r.push(<Block ID={1} title={l[1].title} img={l[1].img} background={l[1].background} width={l[1].width} height={l[1].height} />)
 
